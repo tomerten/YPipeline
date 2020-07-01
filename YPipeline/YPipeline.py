@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 from typing import List
 
-base_url = "https://query2.finance.yahoo.com/v8/finance/"
-
 
 class Symbols:
     def __init__(self, yahoo_symbols: List):
