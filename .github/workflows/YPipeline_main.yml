@@ -9,24 +9,21 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    stratgegy:
+    strategy:
         max-parallel: 4
         matrix:
           pyhton-version: [3.6, 3.7, 3.8]
 
     steps:
       - uses: actions/checkout@v1
-
       - name: Set up Python  ${{ matrix.python-version }} 
           uses: actions/setup-python@v1
           with:
             python-version:  ${{ matrix.python-version }} 
-
       - name: Install dependencies using pipenv
         run: |
           pip install pipenv
           pipenv install --deploy --dev
-
       - run: pipenv run isort --recursive --diff
       - run: pipenv run black --check .
       - run: pipenv run flake8
