@@ -1,7 +1,24 @@
 import time
 from datetime import datetime as dt
+from typing import Dict, Optional, Union
 
-from typing import Union, Optional, Dict
+valid_periods = ["1d", "5d", "1mo", "3mo", "6mo", "1y", "2y", "5y", "10y", "ytd", "max"]
+
+valid_intevals = [
+    "1m",
+    "2m",
+    "5m",
+    "15m",
+    "30m",
+    "90m",
+    "1h",
+    "1d",
+    "5d",
+    "1wk",
+    "1mo",
+    "3mo",
+    "all",
+]
 
 
 def validate_date(_date: Union[dt, str]) -> None:
@@ -23,6 +40,10 @@ def validate_date(_date: Union[dt, str]) -> None:
         pass
     else:
         raise TypeError("Invalid date type!")
+
+
+def clean_period():
+    pass
 
 
 def clean_start_end_period(

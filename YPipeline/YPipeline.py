@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from typing import List
 
 base_url = "https://query2.finance.yahoo.com/v8/finance/"
 
@@ -12,7 +13,7 @@ class Symbols:
 
     def search(self, symbol):
         if symbol in self.symbols:
-            return (symbol, self.symbols.index(symbol))    
+            return (symbol, self.symbols.index(symbol))
 
     def delete(self, symbol):
         try:
@@ -25,5 +26,6 @@ class YahooManual:
     def __init__(self, symbols: Symbols):
         self._symbols = symbols
         self._cache = None
-    
-    
+
+    def get(self, symbols):
+        pass
