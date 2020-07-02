@@ -25,6 +25,34 @@ valid_intevals = [
 ]
 
 
+class InvalidPeriodError(Exception):
+    def __init__(self, *args):
+        if args:
+            self.message = args[0]
+        else:
+            self.message = None
+
+    def __str__(self):
+        if self.message:
+            return "InvalidPeriodError, {0} ".format(self.message)
+        else:
+            return "InvalidPeriodError: Invalid period for price time-series."
+
+
+class InvalidIntervalError(Exception):
+    def __init__(self, *args):
+        if args:
+            self.message = args[0]
+        else:
+            self.message = None
+
+    def __str__(self):
+        if self.message:
+            return "InvalidIntervalError, {0} ".format(self.message)
+        else:
+            return "InvalidIntervalError: Invalid interval for price time-series."
+
+
 def generate_price_urls(symbollist: list) -> list:
     """
     Method to generate yahoo price urls.
