@@ -1,10 +1,11 @@
 import os
 
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup
 
-with open("ypipeline/__about__.py") as file:
+with open("YPipeline/__about__.py") as file:
     about = {}
     for line in file:
+        print(line)
         k, v = line.split("=")
         about[k] = v
 
@@ -22,18 +23,14 @@ setup(
     ame=about["__title__"],
     version=about["__version__"],
     description=about["__description__"],
-    long_description=read('README.md'),
+    long_description=read("README.md"),
     long_description_content_type="text/markdown",
     url=about["__url__"],
     author=about["__author__"],
     license=about["__license__"],
     packages=find_packages(),
     install_requires=requirements,
-    entry_points={
-        'console_scripts': [
-            'YPipeline=YPipeline.cli:main'
-        ]
-    },
+    entry_points={"console_scripts": ["YPipeline=YPipeline.cli:main"]},
     classifiers=[
         "Development Status :: 1 - Alpha",
         "Intended Audience :: Science/Research",
